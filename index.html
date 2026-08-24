@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valuing Suzlon Energy</title>
+<meta name="description" content="A tie-checked, bottom-up DCF valuation of Suzlon Energy dated September 2025, cross-checked against five independent growth-rate methods.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%AC%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f8f7;
+    --surface: #ffffff;
+    --ink: #10201d;
+    --ink-muted: #57706b;
+    --ink-faint: #8aa19c;
+    --teal: #00978d;
+    --teal-deep: #045f58;
+    --teal-wash: #e7f2f0;
+    --amber: #b8720f;
+    --amber-wash: #faf0dd;
+    --line: #dbe5e2;
+    --line-strong: #b9cbc7;
+    --good: #2f7d5a;
+    --shadow: 0 1px 2px rgba(16,32,29,0.04), 0 8px 24px -12px rgba(16,32,29,0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0b1614; --surface: #101d1a; --ink: #eaf2f0; --ink-muted: #93aca6; --ink-faint: #5c716c;
+      --teal: #35c2b5; --teal-deep: #7fe0d4; --teal-wash: #132623; --amber: #e3a542; --amber-wash: #241c0e;
+      --line: #1f322e; --line-strong: #2c433d; --good: #5fbf8f;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0b1614; --surface: #101d1a; --ink: #eaf2f0; --ink-muted: #93aca6; --ink-faint: #5c716c;
+    --teal: #35c2b5; --teal-deep: #7fe0d4; --teal-wash: #132623; --amber: #e3a542; --amber-wash: #241c0e;
+    --line: #1f322e; --line-strong: #2c433d; --good: #5fbf8f;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  a { color: var(--teal-deep); }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; color: var(--ink); }
+  ::selection { background: var(--teal); color: var(--surface); }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  .masthead { border-bottom: 1px solid var(--line); padding: 20px 0; }
+  .masthead .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.01em; }
+  .brand .dot { color: var(--teal); }
+  .masthead .meta { font-size: 0.8rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .hero { padding: 64px 0 40px; }
+  .eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-deep); font-weight: 600; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.3rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.05; max-width: 16ch; }
+  .hero .sub { margin-top: 18px; max-width: 56ch; color: var(--ink-muted); font-size: 1.08rem; }
+
+  .headline-stats {
+    margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
+  }
+  .headline-stats .stat { padding: 22px 24px; border-right: 1px solid var(--line); }
+  .headline-stats .stat:last-child { border-right: none; }
+  .stat .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 8px; }
+  .stat .value { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 600; }
+  .stat .value.teal { color: var(--teal-deep); }
+  .stat .sub { font-size: 0.82rem; color: var(--ink-muted); margin-top: 4px; }
+  @media (max-width: 640px) {
+    .headline-stats { grid-template-columns: 1fr; }
+    .headline-stats .stat { border-right: none; border-bottom: 1px solid var(--line); }
+    .headline-stats .stat:last-child { border-bottom: none; }
+  }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+  .section-num { font-family: 'IBM Plex Mono', monospace; color: var(--ink-faint); font-size: 0.85rem; }
+  .section-head h2 { font-size: 1.6rem; font-weight: 600; }
+  .lede { color: var(--ink-muted); max-width: 66ch; margin: 0 0 28px; font-size: 1rem; }
+
+  .two-col { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+
+  p.body-text { max-width: 66ch; color: var(--ink); }
+  p.body-text + p.body-text { margin-top: 1em; }
+
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 420px; }
+  th, td { padding: 11px 16px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  thead th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 600; background: var(--teal-wash); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+  tr.emphasis td { font-weight: 600; background: var(--teal-wash); }
+  tr.emphasis td:first-child { color: var(--teal-deep); }
+
+  .fcff-chart { display: flex; align-items: flex-end; gap: 6px; height: 200px; margin-top: 8px; }
+  .fcff-bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; height: 100%; }
+  .fcff-bar .bar { width: 100%; background: linear-gradient(180deg, var(--teal) 0%, var(--teal-deep) 100%); border-radius: 3px 3px 0 0; min-height: 3px; }
+  .fcff-bar .val { font-size: 0.68rem; color: var(--ink-muted); font-family: 'IBM Plex Mono', monospace; }
+  .fcff-bar .yr { font-size: 0.68rem; color: var(--ink-faint); margin-top: 2px; }
+  .fcff-caption { font-size: 0.82rem; color: var(--ink-muted); margin-top: 14px; }
+
+  .growth-plot { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 28px 24px 20px; }
+  .gp-row { display: grid; grid-template-columns: 190px 1fr 64px; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .gp-row:last-child { border-bottom: none; }
+  .gp-label { font-size: 0.86rem; }
+  .gp-label .src { display: block; font-size: 0.72rem; color: var(--ink-faint); margin-top: 1px; }
+  .gp-track { position: relative; height: 22px; background: var(--teal-wash); border-radius: 11px; }
+  .gp-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 11px; background: var(--line-strong); opacity: 0.5; }
+  .gp-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%, -50%); border: 2.5px solid var(--surface); box-shadow: 0 0 0 1px var(--line-strong); }
+  .gp-dot.teal { background: var(--teal); }
+  .gp-dot.amber { background: var(--amber); }
+  .gp-val { text-align: right; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.9rem; }
+  .gp-axis { display: grid; grid-template-columns: 190px 1fr 64px; margin-top: 10px; padding-top: 8px; }
+  .gp-axis-track { position: relative; font-size: 0.68rem; color: var(--ink-faint); font-family: 'IBM Plex Mono', monospace; }
+  .gp-axis-track span { position: absolute; transform: translateX(-50%); }
+  .legend { display: flex; gap: 22px; margin-top: 18px; flex-wrap: wrap; }
+  .legend .item { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--ink-muted); }
+  .legend .swatch { width: 10px; height: 10px; border-radius: 50%; }
+
+  .callout { border-left: 3px solid var(--amber); background: var(--amber-wash); padding: 18px 22px; border-radius: 0 4px 4px 0; margin-top: 24px; }
+  .callout .k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); font-weight: 700; margin-bottom: 6px; }
+  .callout p { margin: 0; font-size: 0.95rem; color: var(--ink); max-width: 62ch; }
+
+  .integrity { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .integrity li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.94rem; }
+  .integrity .check { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--teal-wash); color: var(--good); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; margin-top: 2px; }
+
+  .download-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px 28px; box-shadow: var(--shadow); }
+  .download-card h3 { font-size: 1.15rem; font-weight: 600; }
+  .download-card p { margin: 6px 0 0; color: var(--ink-muted); font-size: 0.9rem; max-width: 46ch; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: #ffffff; font-weight: 600; font-size: 0.92rem; padding: 12px 22px; border-radius: 5px; text-decoration: none; white-space: nowrap; transition: background 0.15s ease; }
+  .btn:hover { background: var(--teal-deep); }
+  .btn:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: 2px; }
+
+  footer { padding: 40px 0 60px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--ink-faint); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">Suzlon Energy<span class="dot">.</span> DCF Valuation</div>
+    <div class="meta">NSE: SUZLON &middot; Dated 26 Sep 2025</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none; padding-top:64px;">
+    <div class="wrap">
+      <div class="eyebrow">Independent equity research &middot; academic valuation</div>
+      <h1>What was the market pricing into Suzlon Energy?</h1>
+      <p class="sub">A ground-up discounted cash flow valuation of Suzlon Energy Limited, dated to the close of trading on 26 September 2025 &mdash; built on a reusable, tie-checked valuation engine and cross-examined against five independent growth-rate methods.</p>
+
+      <div class="headline-stats">
+        <div class="stat">
+          <div class="label">Implied Value / Share</div>
+          <div class="value teal">&#8377;56.05</div>
+          <div class="sub">vs. market close &#8377;56.04</div>
+        </div>
+        <div class="stat">
+          <div class="label">WACC</div>
+          <div class="value">7.89%</div>
+          <div class="sub">99.6% equity-funded</div>
+        </div>
+        <div class="stat">
+          <div class="label">Forecast Horizon</div>
+          <div class="value">10&nbsp;yrs</div>
+          <div class="sub">FY2026E &ndash; FY2035E</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">01</span><h2>The approach</h2></div>
+      <div class="two-col">
+        <div>
+          <p class="body-text">This valuation runs on a valuation engine I built from scratch in Python: it reads a company's XBRL-derived financial history, reconstructs a full three-statement forecast, builds a bottom-up WACC from first principles, and produces a discounted cash flow &mdash; entirely through live, auditable Excel formulas, never pasted values. The same engine has been run on Suzlon, Adani Ports, and two IT-services comparables (LTIMindtree, Mindtree) without a single line of company-specific code.</p>
+          <p class="body-text">Every schedule ties out to the as-filed numbers: revenue, working capital, PP&amp;E, debt and tax all reconcile to zero against the reported financials before a single forecast year is built. The market inputs &mdash; share price and shares outstanding &mdash; are pinned to the actual close on 26 September 2025, not a live snapshot, so the valuation is a genuine point-in-time exercise, not a moving target.</p>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <tbody>
+              <tr><td>Valuation date</td><td class="num">26 Sep 2025</td></tr>
+              <tr><td>Share price (close)</td><td class="num">&#8377;56.04</td></tr>
+              <tr><td>Shares outstanding</td><td class="num">13.66bn</td></tr>
+              <tr><td>Market cap</td><td class="num">&#8377;76,545 cr</td></tr>
+              <tr><td>Last actual FY</td><td class="num">FY2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wacc">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">02</span><h2>Cost of capital</h2></div>
+      <p class="lede">Built bottom-up: an unlevered sector beta (Damodaran, Power sector) relevered to Suzlon's own capital structure, a risk-free rate stripped of sovereign risk and then added back through the cost of debt, and a synthetic credit rating from Suzlon's own interest coverage.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Component</th><th class="num">Value</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td>Unlevered beta</td><td class="num">0.435</td><td>Damodaran, Global dataset, Power sector</td></tr>
+            <tr><td>Relevered beta</td><td class="num">0.449</td><td>at Suzlon's D/E of 4.6%</td></tr>
+            <tr><td>Risk-free rate</td><td class="num">4.72%</td><td>India 10Y G-Sec (6.59%) &minus; sovereign spread (1.87%)</td></tr>
+            <tr><td>Total equity risk premium</td><td class="num">7.08%</td><td>Damodaran, India</td></tr>
+            <tr class="emphasis"><td>Cost of equity</td><td class="num">7.90%</td><td>Rf + &beta;&nbsp;&times;&nbsp;ERP</td></tr>
+            <tr><td>Pre-tax cost of debt</td><td class="num">7.29%</td><td>Rf + sovereign spread + company spread (0.70%)</td></tr>
+            <tr><td>After-tax cost of debt</td><td class="num">5.10%</td><td>at 30% marginal tax rate</td></tr>
+            <tr><td>Capital weights</td><td class="num">99.6% / 0.4%</td><td>equity / debt &mdash; Suzlon is almost entirely equity-funded</td></tr>
+            <tr class="emphasis"><td>WACC</td><td class="num">7.89%</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="dcf">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">03</span><h2>The cash flows</h2></div>
+      <p class="lede">Unlevered free cash flow to the firm, explicit through FY2035E, discounted at 7.89% and summed against a value-driver terminal value.</p>
+
+      <div class="fcff-chart">
+        <div class="fcff-bar"><span class="val num">438</span><div class="bar" style="height:7.5%"></div><span class="yr">FY26</span></div>
+        <div class="fcff-bar"><span class="val num">490</span><div class="bar" style="height:8.4%"></div><span class="yr">FY27</span></div>
+        <div class="fcff-bar"><span class="val num">815</span><div class="bar" style="height:14.0%"></div><span class="yr">FY28</span></div>
+        <div class="fcff-bar"><span class="val num">1,229</span><div class="bar" style="height:21.1%"></div><span class="yr">FY29</span></div>
+        <div class="fcff-bar"><span class="val num">1,740</span><div class="bar" style="height:29.9%"></div><span class="yr">FY30</span></div>
+        <div class="fcff-bar"><span class="val num">2,354</span><div class="bar" style="height:40.4%"></div><span class="yr">FY31</span></div>
+        <div class="fcff-bar"><span class="val num">3,073</span><div class="bar" style="height:52.8%"></div><span class="yr">FY32</span></div>
+        <div class="fcff-bar"><span class="val num">3,856</span><div class="bar" style="height:66.2%"></div><span class="yr">FY33</span></div>
+        <div class="fcff-bar"><span class="val num">4,787</span><div class="bar" style="height:82.2%"></div><span class="yr">FY34</span></div>
+        <div class="fcff-bar"><span class="val num">5,821</span><div class="bar" style="height:100%"></div><span class="yr">FY35</span></div>
+      </div>
+      <p class="fcff-caption">Unlevered FCFF, &#8377; crore, FY2026E&ndash;FY2035E</p>
+
+      <div class="table-scroll" style="margin-top:32px;">
+        <table>
+          <tbody>
+            <tr><td>Sum of PV of explicit FCFF</td><td class="num">&#8377;14,114 cr</td></tr>
+            <tr><td>Terminal value (value-driver formula)</td><td class="num">&#8377;131,630 cr</td></tr>
+            <tr><td>PV of terminal value</td><td class="num">&#8377;61,613 cr</td></tr>
+            <tr class="emphasis"><td>Enterprise value</td><td class="num">&#8377;75,727 cr</td></tr>
+            <tr><td>(&minus;) Total debt</td><td class="num">&minus;&#8377;283 cr</td></tr>
+            <tr><td>(+) Cash &amp; equivalents</td><td class="num">&#8377;1,113 cr</td></tr>
+            <tr class="emphasis"><td>Equity value</td><td class="num">&#8377;76,557 cr</td></tr>
+            <tr class="emphasis"><td>Implied value per share</td><td class="num">&#8377;56.05</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="growth">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">04</span><h2>How much growth does &#8377;56 actually assume?</h2></div>
+      <p class="lede">The DCF's implied value only matches the market at one specific growth assumption. Rather than take that number on faith, it's checked here against five independent methods &mdash; each estimating long-run growth a completely different way.</p>
+
+      <div class="growth-plot">
+        <div class="gp-row">
+          <div class="gp-label">Historical trend<span class="src">10yr log-linear, this company's own filings</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:7.9%"></div><div class="gp-dot teal" style="left:7.9%"></div></div>
+          <div class="gp-val">4.7%</div>
+        </div>
+        <div class="gp-row">
+          <div class="gp-label">Fundamental growth<span class="src">ROIC (27.2%) &times; reinvestment rate (72.5%)</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:32.8%"></div><div class="gp-dot teal" style="left:32.8%"></div></div>
+          <div class="gp-val">19.7%</div>
+        </div>
+        <div class="gp-row">
+          <div class="gp-label">Sector capacity growth<span class="src">MNRE wind capacity &rarr; National Electricity Plan, FY32</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:22.7%"></div><div class="gp-dot teal" style="left:22.7%"></div></div>
+          <div class="gp-val">13.6%</div>
+        </div>
+        <div class="gp-row">
+          <div class="gp-label">Order-book conversion<span class="src">&#8377;20,000cr backlog &divide; FY25 revenue run-rate</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:90.5%"></div><div class="gp-dot teal" style="left:90.5%"></div></div>
+          <div class="gp-val">54.3%</div>
+        </div>
+        <div class="gp-row">
+          <div class="gp-label">Sell-side estimate<span class="src">Anand Rathi, initiated 8 Jul 2025 &mdash; predates this valuation</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:80.8%"></div><div class="gp-dot teal" style="left:80.8%"></div></div>
+          <div class="gp-val">48.5%</div>
+        </div>
+        <div class="gp-row">
+          <div class="gp-label"><strong>Market-implied</strong><span class="src">reverse-solved: the rate that reconciles the DCF to &#8377;56.04</span></div>
+          <div class="gp-track"><div class="gp-fill" style="width:61.5%; background:var(--amber); opacity:0.35;"></div><div class="gp-dot amber" style="left:61.5%"></div></div>
+          <div class="gp-val">36.9%</div>
+        </div>
+        <div class="gp-axis">
+          <div></div>
+          <div class="gp-axis-track">
+            <span style="left:0%">0%</span>
+            <span style="left:16.6%">10%</span>
+            <span style="left:33.3%">20%</span>
+            <span style="left:50%">30%</span>
+            <span style="left:66.6%">40%</span>
+            <span style="left:83.3%">50%</span>
+            <span style="left:99%">60%</span>
+          </div>
+          <div></div>
+        </div>
+        <div class="legend">
+          <div class="item"><span class="swatch" style="background:var(--teal)"></span>Independent estimate</div>
+          <div class="item"><span class="swatch" style="background:var(--amber)"></span>Market-implied (back-solved)</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="k">The honest read</div>
+        <p>The market-implied rate of 36.9% sits between the fundamental-growth estimate (19.7%) and the sell-side estimate (48.5%) &mdash; it isn't an outlier. If anything, a real analyst note published <em>before</em> this valuation date was already more bullish than what the market price required. The gap worth watching is the fundamental-growth check: Suzlon's own ROIC and reinvestment rate support closer to 20% growth, not 37% &mdash; the difference is exactly the premium the market was placing on Suzlon's order-book momentum and sector tailwinds holding up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rigor">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">05</span><h2>Built to be checked</h2></div>
+      <ul class="integrity">
+        <li><span class="check">&#10003;</span>Every schedule &mdash; revenue, working capital, PP&amp;E, debt, tax &mdash; ties to the as-filed financials at exactly zero, for every historical year.</li>
+        <li><span class="check">&#10003;</span>All outputs are live Excel formulas, auditable cell by cell &mdash; nothing is a pasted value.</li>
+        <li><span class="check">&#10003;</span>Market inputs (price, shares) are pinned to the actual close on the valuation date, not a live feed.</li>
+        <li><span class="check">&#10003;</span>The market-implied growth rate is disclosed as reverse-solved, not presented as an independent forecast.</li>
+        <li><span class="check">&#10003;</span>Cost of debt includes the sovereign default spread explicitly &mdash; a gap caught and fixed during a methodology audit against CAPM/WACC literature.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="download-card">
+        <div>
+          <h3>Open the full model</h3>
+          <p>Every formula, every schedule, every tie-check &mdash; the complete workbook behind this page.</p>
+        </div>
+        <a class="btn" href="suzlon-dcf-valuation/Suzlon_DCF_Valuation_Sep2025.xlsx" download>Download .xlsx &nbsp;&rarr;</a>
+      </div>
+      <p style="margin-top:14px; font-size:0.82rem; color:var(--ink-faint);">Also on GitHub: <a href="https://github.com/sasi2anand-blip/Resume/tree/main/suzlon-dcf-valuation" style="color:var(--teal-deep);">sasi2anand-blip/Resume</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Sasi &mdash; independent equity research, academic project</span>
+    <span>Built with a reusable Python valuation engine &middot; not investment advice</span>
+  </div>
+</footer>
+
+</body>
+</html>
