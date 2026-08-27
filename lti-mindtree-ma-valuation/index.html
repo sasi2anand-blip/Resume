@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was the LTI-Mindtree Merger Priced Fairly?</title>
+<meta name="description" content="A nine-method independent fairness review of the LTI-Mindtree 73:100 stock-for-stock merger, built from a 49-sheet, fully-linked, zero-formula-error valuation model.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%97%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f8f7; --surface: #ffffff; --ink: #10201d; --ink-muted: #57706b; --ink-faint: #8aa19c;
+    --teal: #00978d; --teal-deep: #045f58; --teal-wash: #e7f2f0;
+    --amber: #b8720f; --amber-wash: #faf0dd;
+    --line: #dbe5e2; --line-strong: #b9cbc7; --good: #2f7d5a;
+    --shadow: 0 1px 2px rgba(16,32,29,0.04), 0 8px 24px -12px rgba(16,32,29,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0b1614; --surface: #101d1a; --ink: #eaf2f0; --ink-muted: #93aca6; --ink-faint: #5c716c;
+      --teal: #35c2b5; --teal-deep: #7fe0d4; --teal-wash: #132623; --amber: #e3a542; --amber-wash: #241c0e;
+      --line: #1f322e; --line-strong: #2c433d; --good: #5fbf8f;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0b1614; --surface: #101d1a; --ink: #eaf2f0; --ink-muted: #93aca6; --ink-faint: #5c716c;
+    --teal: #35c2b5; --teal-deep: #7fe0d4; --teal-wash: #132623; --amber: #e3a542; --amber-wash: #241c0e;
+    --line: #1f322e; --line-strong: #2c433d; --good: #5fbf8f;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  a { color: var(--teal-deep); }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; color: var(--ink); }
+  ::selection { background: var(--teal); color: var(--surface); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .masthead { border-bottom: 1px solid var(--line); padding: 20px 0; }
+  .masthead .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.01em; }
+  .brand .dot { color: var(--teal); }
+  .masthead .meta { font-size: 0.8rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .hero { padding: 64px 0 40px; }
+  .eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-deep); font-weight: 600; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.1rem); font-weight: 600; line-height: 1.08; max-width: 19ch; }
+  .hero .sub { margin-top: 18px; max-width: 60ch; color: var(--ink-muted); font-size: 1.08rem; }
+  .headline-stats { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .headline-stats .stat { padding: 22px 24px; border-right: 1px solid var(--line); }
+  .headline-stats .stat:last-child { border-right: none; }
+  .stat .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 8px; }
+  .stat .value { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 600; }
+  .stat .value.teal { color: var(--teal-deep); }
+  .stat .sub { font-size: 0.82rem; color: var(--ink-muted); margin-top: 4px; }
+  @media (max-width: 640px) { .headline-stats { grid-template-columns: 1fr; } .headline-stats .stat { border-right: none; border-bottom: 1px solid var(--line); } .headline-stats .stat:last-child { border-bottom: none; } }
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+  .section-num { font-family: 'IBM Plex Mono', monospace; color: var(--ink-faint); font-size: 0.85rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 600; }
+  .lede { color: var(--ink-muted); max-width: 66ch; margin: 0 0 28px; font-size: 1rem; }
+  .two-col { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+  p.body-text { max-width: 66ch; color: var(--ink); }
+  p.body-text + p.body-text { margin-top: 1em; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 420px; }
+  th, td { padding: 11px 16px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  thead th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); font-weight: 600; background: var(--teal-wash); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+  tr.emphasis td { font-weight: 600; background: var(--teal-wash); }
+  tr.emphasis td:first-child { color: var(--teal-deep); }
+  td.wrap-cell { white-space: normal; max-width: 380px; }
+  .callout { border-left: 3px solid var(--amber); background: var(--amber-wash); padding: 18px 22px; border-radius: 0 4px 4px 0; margin-top: 24px; }
+  .callout .k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); font-weight: 700; margin-bottom: 6px; }
+  .callout p { margin: 0; font-size: 0.95rem; color: var(--ink); max-width: 62ch; }
+  .integrity { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .integrity li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.94rem; }
+  .integrity .check { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--teal-wash); color: var(--good); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; margin-top: 2px; }
+  .download-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px 28px; box-shadow: var(--shadow); }
+  .download-card h3 { font-size: 1.15rem; font-weight: 600; }
+  .download-card p { margin: 6px 0 0; color: var(--ink-muted); font-size: 0.9rem; max-width: 46ch; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: #ffffff; font-weight: 600; font-size: 0.92rem; padding: 12px 22px; border-radius: 5px; text-decoration: none; white-space: nowrap; transition: background 0.15s ease; }
+  .btn:hover { background: var(--teal-deep); }
+  .btn:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: 2px; }
+  footer { padding: 40px 0 60px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--ink-faint); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">LTI&ndash;Mindtree<span class="dot">.</span> Merger Fairness Review</div>
+    <div class="meta">73:100 Exchange Ratio &middot; Announced 6 May 2022</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none; padding-top:64px;">
+    <div class="wrap">
+      <div class="eyebrow">Independent M&amp;A case study &middot; academic valuation</div>
+      <h1>Was the LTI&ndash;Mindtree merger priced fairly?</h1>
+      <p class="sub">L&amp;T Group merged two of its own IT-services companies at a 73:100 stock-for-stock exchange ratio. This model tests that ratio nine independent ways &mdash; DCF, trading comps, precedent transactions, a synergy backsolve, event study, and more &mdash; from a single 49-sheet, fully-linked, zero-formula-error workbook.</p>
+
+      <div class="headline-stats">
+        <div class="stat">
+          <div class="label">Exchange Ratio Tested</div>
+          <div class="value teal">73:100</div>
+          <div class="sub">L&amp;T retained 68.73% combined</div>
+        </div>
+        <div class="stat">
+          <div class="label">Valuation Methods</div>
+          <div class="value">9</div>
+          <div class="sub">DCF, comps, LBO, event study &amp; more</div>
+        </div>
+        <div class="stat">
+          <div class="label">Model Integrity</div>
+          <div class="value">0</div>
+          <div class="sub">formula errors, 49 sheets, 10yr horizon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">01</span><h2>The approach</h2></div>
+      <div class="two-col">
+        <div>
+          <p class="body-text">Both companies get an independent full three-statement forecast (FY2023E&ndash;FY2032E), a bottom-up WACC built from Damodaran sector beta relevered to each company's actual capital structure, and a value-driver DCF &mdash; all built from real filed financials, all live Excel formulas, never pasted values. Both models sit in the same workbook, so every cross-company link (exchange ratio, comps, precedent transactions) stays a live same-file reference rather than a fragile cross-file one.</p>
+          <p class="body-text">The pattern across all nine cross-checks is consistent: this reads as a merger of two already-affiliated companies priced at relative value, not a competitive third-party buyout that would demand a control premium.</p>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <tbody>
+              <tr><td>Deal announced</td><td class="num">6 May 2022</td></tr>
+              <tr><td>Exchange ratio (actual)</td><td class="num">73:100</td></tr>
+              <tr><td>Combined FY23 revenue</td><td class="num">&#8377;331,830M</td></tr>
+              <tr><td>L&amp;T Group stake post-merger</td><td class="num">68.73%</td></tr>
+              <tr><td>Forecast horizon</td><td class="num">FY2023E&ndash;FY2032E</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dcf">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">02</span><h2>DCF &amp; cost of capital</h2></div>
+      <p class="lede">Each company valued independently on its own bottom-up WACC, both landing just above 10% and both companies near-debt-free.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Metric</th><th class="num">LTI</th><th class="num">Mindtree</th></tr></thead>
+          <tbody>
+            <tr><td>DCF value / share</td><td class="num">&#8377;3,845.72</td><td class="num">&#8377;2,595.89</td></tr>
+            <tr><td>% of actual market price (6 May 2022)</td><td class="num">83.7%</td><td class="num">76.9%</td></tr>
+            <tr class="emphasis"><td>WACC</td><td class="num">10.06%</td><td class="num">10.04%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <div class="k">A real bug, caught and fixed</div>
+        <p>A methodology audit found the Cost of Debt formula was silently dropping the Sovereign Default Spread term (it should be Risk-Free Rate + Sovereign Spread + Company Spread; it was only Risk-Free Rate + Company Spread). Fixed across all three linked files. Impact was small given both companies are ~99% equity-funded &mdash; WACC moved roughly +1.3 basis points, value/share moved about &minus;0.17% each &mdash; but it was a genuine correctness fix, verified before it stood uncorrected.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="crosschecks">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">03</span><h2>Nine independent fairness checks</h2></div>
+      <p class="lede">Beyond the DCF itself, the deal's fairness gets tested nine separate ways &mdash; each using a different method, on the same underlying financials.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Method</th><th class="wrap-cell">Finding</th></tr></thead>
+          <tbody>
+            <tr><td>Trading comps &amp; precedent transactions</td><td class="wrap-cell">EV/Revenue implied ratio of 73.11 &mdash; strikingly close to the actual (73.00) and market-implied (73.47) ratios, closer than trading comps alone (76.47)</td></tr>
+            <tr><td>Premium paid analysis</td><td class="wrap-cell">Deal priced at a &minus;0.64% discount to Mindtree's market price, well below the typical 20&ndash;40% global takeover premium range and every precedent-deal premium checked</td></tr>
+            <tr><td>Goal-seek synergy backsolve</td><td class="wrap-cell">Required cost synergy (&#8377;2,955M/yr) is only 0.61&times; the model's own bottom-up cost-synergy estimate &mdash; comfortably covered</td></tr>
+            <tr><td>Best owner analysis</td><td class="wrap-cell">Tested against the McKinsey/Copeland-Koller 5-lever framework; two levers evidenced, and the framework itself confirms there was no competitive best-owner contest &mdash; both firms were already L&amp;T-owned</td></tr>
+            <tr><td>Value of control</td><td class="wrap-cell">LTI shows small genuine headroom (+0.15%) as a below-median performer; Mindtree correctly shows ~0% since it already runs above the peer median</td></tr>
+            <tr><td>Exchange ratio sensitivity</td><td class="wrap-cell">The actual 0.73&times; ratio sits toward the low-premium end of a 0.60&times;&ndash;0.90&times; sensitivity range, not the middle</td></tr>
+            <tr><td>Reference LBO floor</td><td class="wrap-cell">Every tested entry multiple (6&times;&ndash;11&times; EBITDA) clears a 22% target sponsor IRR (25.8%&ndash;41.5%); implied value sits at only ~41&ndash;44% of the DCF value, confirming the LBO floor isn't the binding constraint</td></tr>
+            <tr><td>Event study &amp; significance</td><td class="wrap-cell">Mindtree's negative CAR is significant at the 1% level in both event windows (Beta 1.49, R&sup2; 67.8%) &mdash; the market's reaction was real, not noise</td></tr>
+            <tr><td>Stress test (bull/base/bear)</td><td class="wrap-cell">Base and bull cases pass comfortably; the bear case (zero synergy, integration cost still paid) correctly falls outside the acceptable range</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="accretion">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">04</span><h2>Accretion / dilution</h2></div>
+      <p class="lede">EPS impact tested on two bases, cross-checked against Reinhardt's P/E Rule to see how much of the accretion is genuinely synergy-driven versus mechanical.</p>
+      <div class="table-scroll">
+        <table>
+          <tbody>
+            <tr><td>EPS accretion (FY22 basis)</td><td class="num">+1.90%</td></tr>
+            <tr><td>EPS accretion (FY23 actual basis)</td><td class="num">+13.77%</td></tr>
+            <tr><td>LTI's own trailing P/E</td><td class="num">35.0&times;</td></tr>
+            <tr class="emphasis"><td>Implied P/E paid for Mindtree</td><td class="num">33.4&times;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="body-text" style="margin-top:18px;">Paying a lower implied multiple than the acquirer's own trading multiple is a big part of why the deal is accretive &mdash; the Reinhardt check confirms the accretion is only partly mechanical, not purely a synergy story.</p>
+    </div>
+  </section>
+
+  <section id="rigor">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">05</span><h2>Built to be checked</h2></div>
+      <ul class="integrity">
+        <li><span class="check">&#10003;</span>Balance Check ties to exactly 0 across all 10 forecast years, for both companies.</li>
+        <li><span class="check">&#10003;</span>Best Owner Analysis initially used 5 self-derived levers instead of the actual Copeland-Koller framework &mdash; caught via source re-verification and rebuilt with the correct levers.</li>
+        <li><span class="check">&#10003;</span>A Value of Control test initially forced Mindtree's margin down to the industry median even though it already outperforms it, violating the framework's own governing rule &mdash; caught, corrected, and documented on the sheet.</li>
+        <li><span class="check">&#10003;</span>A units-mismatch bug (an absolute-Rupee column mislabeled as "Rs. Millions") was caught before the LBO Floor's per-share output was trusted, by checking the result landed in a sane range.</li>
+        <li><span class="check">&#10003;</span>Mindtree's event-study regression was rebuilt from a simplified beta=1 fallback to full market-model rigor, after sourcing 119 additional days of delisted-ticker price history.</li>
+        <li><span class="check">&#10003;</span>A workbook-navigation bug (hyperlinks silently detached from their labels after row insertions) was caught by testing actual link-to-target alignment, not just that the destination sheet existed.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="download-card">
+        <div>
+          <h3>Open the full model</h3>
+          <p>All 49 sheets, both companies, every formula &mdash; the complete workbook behind this page.</p>
+        </div>
+        <a class="btn" href="LTI_Mindtree_Merger_Model.xlsx" download>Download .xlsx &nbsp;&rarr;</a>
+      </div>
+      <p style="margin-top:14px; font-size:0.82rem; color:var(--ink-faint);">Also on GitHub: <a href="https://github.com/sasi2anand-blip/Resume/tree/main/lti-mindtree-ma-valuation" style="color:var(--teal-deep);">sasi2anand-blip/Resume</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Sasi &mdash; independent M&amp;A case study, academic project</span>
+    <span>Not deal advisory or equity research coverage &middot; not investment advice</span>
+  </div>
+</footer>
+
+</body>
+</html>
